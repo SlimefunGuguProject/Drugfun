@@ -1,0 +1,23 @@
+# Drugs file
+drugsFile: "drugs.yml"
+
+# Drugs file type
+fileType: "YAML"
+
+# If enabled, 'drugsFile' is treated as a directory where
+# each file is treated as a separate drug
+multiFile: false
+
+overdose:
+  expire: 120 # Seconds
+  effects:
+    nausa: # ID
+      type: "CONFUSION" # PotionEffectType
+      duration: 30 # Seconds
+      amplifier: 1
+      required: 5 # If the counter is at this stage or higher, the effects get applied
+    weak:
+      type: "WEAKNESS"
+      duration: 30
+      amplifier: 1
+      required: 10

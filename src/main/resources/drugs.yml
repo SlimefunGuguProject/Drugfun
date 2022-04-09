@@ -1,0 +1,15 @@
+# ID
+cocaine:
+  name: "Cocaine"
+  material: "SUGAR"
+  lore:
+    - ""
+  recipe:
+    type: "ENHANCED_CRAFTING_TABLE"
+    output: 1
+    ingredients:
+      - "SUGAR:1"
+  trigger:
+    amount: 2 # When the drug is used, this is the amount added to the counter. Leading to
+    effects:
+      - "SPEED:30:1"

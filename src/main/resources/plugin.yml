@@ -1,0 +1,7 @@
+name: ${project.name}
+description: ${project.description}
+
+main: tsp.drugfun.Drugfun
+version: ${project.version}
+author: Silent
+depend: [Slimefun]

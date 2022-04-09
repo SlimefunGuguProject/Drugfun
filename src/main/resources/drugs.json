@@ -1,0 +1,25 @@
+[
+  {
+    "id": "cocaine",
+    "name": "Cocaine",
+    "material": "SUGAR",
+    "lore": [],
+    "recipe": {
+      "name": "Cocaine",
+      "type": "ENHANCED_CRAFTING_TABLE",
+      "output": 1,
+      "ingredients": [
+        "SUGAR:1"
+      ]
+    },
+    "trigger": {
+      "effects": [
+        "SPEED:60:1"
+      ]
+    },
+    "overdose":{
+      "amount": 1,
+      "effects": []
+    }
+  }
+]

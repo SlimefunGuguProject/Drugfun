@@ -1,0 +1,83 @@
+package tsp.drugfun.util;
+
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import tsp.drugfun.implementation.data.DrugData;
+import tsp.drugfun.implementation.data.PotionData;
+import tsp.drugfun.implementation.data.RecipeData;
+import tsp.drugfun.implementation.data.TriggerData;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Utils {
+
+    public static SlimefunItemStack asSlimefunStack(DrugData data) {
+        return new SlimefunItemStack(
+                data.getId().toUpperCase(), // Slimefun requires upper case ids
+                new ItemStack(Material.matchMaterial(data.getMaterial()), data.getRecipeData().getOutput()),
+                data.getName(),
+                data.getLore().toArray(new String[0])
+        );
+    }
+
+    public static RecipeType asRecipeType(RecipeData data) {
+        String type = data.getType();
+        RecipeType result = null;
+        if (type.equalsIgnoreCase("ENHANCED_CRAFTING_TABLE") || type.equalsIgnoreCase("ECT")) {
+            result = RecipeType.ENHANCED_CRAFTING_TABLE;
+        } else if (type.equalsIgnoreCase("FOOD_FABRICATOR") || type.equalsIgnoreCase("FF")) {
+            result = RecipeType.FOOD_FABRICATOR;
+        }
+        // TODO: finish
+
+        return result;
+    }
+
+    public static ItemStack[] asIngredients(RecipeData data) {
+        List<String> raw = data.getIngredients();
+        List<ItemStack> result = new ArrayList<>();
+        for (String entry : raw) {
+            String[] args = entry.split(":");
+            result.add(new ItemStack(Material.matchMaterial(args[0]), Integer.parseInt(args[1])));
+        }
+
+        return result.toArray(new ItemStack[0]);
+    }
+
+    public static List<PotionEffect> asEffects(TriggerData data) {
+        List<String> raw = data.getEffects();
+        List<PotionEffect> result = new ArrayList<>();
+        for (String entry : raw) {
+            String[] args = entry.split(":");
+            result.add(
+                    new PotionEffect(PotionEffectType.getByName(args[0]),
+                            Integer.parseInt(args[1]) * 20,
+                            Integer.parseInt(args[2]) - 1
+                    ));
+        }
+
+        return result;
+    }
+
+    public static Map<PotionEffect, Integer> asOverdoseEffects(List<PotionData> data) {
+        Map<PotionEffect, Integer> result = new HashMap<>();
+        for (PotionData entry : data) {
+            PotionEffect effect = new PotionEffect(
+                    PotionEffectType.getByName(entry.getType()),
+                    entry.getDuration(),
+                    entry.getAmplifier()
+            );
+            result.put(effect, entry.getRequired());
+        }
+
+        return result;
+    }
+
+}
