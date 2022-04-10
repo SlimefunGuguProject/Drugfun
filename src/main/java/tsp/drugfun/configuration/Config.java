@@ -16,11 +16,11 @@ import java.util.Map;
 public class Config {
 
     private final File file;
-    private FileConfiguration data;
-    private File drugsFile;
-    private String fileType;
-    private boolean multi;
-    private int overdoseExpire;
+    private final FileConfiguration data;
+    private final File drugsFile;
+    private final String fileType;
+    private final boolean multi;
+    private final int overdoseExpire;
     private final Map<PotionEffect, Integer> overdoseEffects;
 
     public Config(File file) {
@@ -39,14 +39,14 @@ public class Config {
 
     private List<PotionData> asPotionData() {
         List<PotionData> result = new ArrayList<>();
-        ConfigurationSection section = data.getConfigurationSection("overdose.effects");
-        for (String entry : section.getKeys(false)) {
+        for (String id : data.getConfigurationSection("overdose.effects").getKeys(false)) {
+            String path = "overdose.effects." + id;
             result.add(PotionData.builder()
-                    .id(entry)
-                    .type(section.getString(entry + ".type"))
-                    .duration(section.getInt(entry + ".duration"))
-                    .amplifier(section.getInt(entry + ".amplifier"))
-                    .required(section.getInt(entry + ".required"))
+                    .id(id)
+                    .type(data.getString(path + ".type"))
+                    .duration(data.getInt(path + ".duration") * 20)
+                    .amplifier(data.getInt(path + ".amplifier") - 1)
+                    .required(data.getInt(path + ".required"))
                     .build());
         }
 

@@ -9,7 +9,7 @@ fileType: "YAML"
 multiFile: false
 
 overdose:
-  expire: 120 # Seconds
+  expire: 120 # Drug counter falls of by 1 every 'expire' seconds
   effects:
     nausa: # ID
       type: "CONFUSION" # PotionEffectType

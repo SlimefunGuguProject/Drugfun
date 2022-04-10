@@ -57,7 +57,7 @@ public class DrugsConfig {
                     )
 
                     .triggerData(TriggerData.builder()
-                            .amount(data.getInt(id + ".amount"))
+                            .amount(data.getInt(id + ".trigger.amount"))
                             .effects(data.getStringList(id + ".trigger.effects"))
                             .build())
                     .build());

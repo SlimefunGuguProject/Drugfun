@@ -4,4 +4,5 @@ description: ${project.description}
 main: tsp.drugfun.Drugfun
 version: ${project.version}
 author: Silent
+api-version: 1.18
 depend: [Slimefun]

@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tsp.drugfun.configuration.Config;
 import tsp.drugfun.configuration.DrugsConfig;
 import tsp.drugfun.implementation.item.Drug;
+import tsp.drugfun.implementation.item.Morphine;
 import tsp.drugfun.task.OverdoseTask;
 
 import javax.annotation.Nonnull;
@@ -27,10 +28,10 @@ public class Drugfun extends JavaPlugin implements SlimefunAddon {
         this.drugsConfig.loadYaml(config.isMulti());
         registerDefaults();
         Bukkit.getScheduler().runTaskTimer(this, new OverdoseTask(), 0L, config.getOverdoseExpire() * 20L);
-        System.out.println("registered: " + this.drugsConfig.getDrugs().size());
     }
 
     private void registerDefaults() {
+        new Morphine().register(this);
         this.drugsConfig.getDrugs().forEach(data -> new Drug(data).register(this));
     }
 

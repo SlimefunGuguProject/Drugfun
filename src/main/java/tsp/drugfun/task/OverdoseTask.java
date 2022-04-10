@@ -10,7 +10,7 @@ public class OverdoseTask implements Runnable {
     @Override
     public void run() {
         for (Player player : Bukkit.getOnlinePlayers()) {
-            int amount = PersistentDataAPI.getInt(player, Drug.DRUG_COUNTER_KEY, 0);
+            int amount = PersistentDataAPI.getInt(player, Drug.DRUG_COUNTER_KEY, -1);
             if (amount <= 0) {
                 PersistentDataAPI.remove(player, Drug.DRUG_COUNTER_KEY);
                 continue;

@@ -2,6 +2,7 @@ package tsp.drugfun.util;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -29,7 +30,7 @@ public class Utils {
 
     public static RecipeType asRecipeType(RecipeData data) {
         String type = data.getType();
-        RecipeType result = null;
+        RecipeType result = RecipeType.NULL;
         if (type.equalsIgnoreCase("ENHANCED_CRAFTING_TABLE") || type.equalsIgnoreCase("ECT")) {
             result = RecipeType.ENHANCED_CRAFTING_TABLE;
         } else if (type.equalsIgnoreCase("FOOD_FABRICATOR") || type.equalsIgnoreCase("FF")) {
@@ -45,7 +46,17 @@ public class Utils {
         List<ItemStack> result = new ArrayList<>();
         for (String entry : raw) {
             String[] args = entry.split(":");
-            result.add(new ItemStack(Material.matchMaterial(args[0]), Integer.parseInt(args[1])));
+            ItemStack item = new ItemStack(Material.AIR, Integer.parseInt(args[1]));
+            String material = args[0];
+            if (material.startsWith("#")) {
+                Slimefun.getRegistry().getAllSlimefunItems().stream()
+                        .filter(sfItem -> sfItem.getId().equalsIgnoreCase(args[0]))
+                        .findFirst()
+                        .ifPresent(sfItem -> result.add(sfItem.getItem()));
+            } else {
+                item.setType(Material.matchMaterial(material));
+                result.add(item);
+            }
         }
 
         return result.toArray(new ItemStack[0]);

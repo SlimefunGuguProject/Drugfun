@@ -7,6 +7,8 @@ cocaine:
   recipe:
     type: "ENHANCED_CRAFTING_TABLE"
     output: 1
+    # Format: MATERIAL:AMOUNT
+    # If the material starts with hashtag (#) the material will be treated as a slimefun item id
     ingredients:
       - "SUGAR:1"
   trigger:
