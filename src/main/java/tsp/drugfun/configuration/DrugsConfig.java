@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import tsp.drugfun.implementation.data.DrugData;
 import tsp.drugfun.implementation.data.RecipeData;
+import tsp.drugfun.implementation.data.ResearchData;
 import tsp.drugfun.implementation.data.TriggerData;
 
 import java.io.File;
@@ -59,6 +60,13 @@ public class DrugsConfig {
                     .triggerData(TriggerData.builder()
                             .amount(data.getInt(id + ".trigger.amount"))
                             .effects(data.getStringList(id + ".trigger.effects"))
+                            .build())
+
+                    .researchData(ResearchData.builder()
+                            .id(data.getString(id + ".research.id"))
+                            .legacyId(data.getInt(id + ".research.legacyId"))
+                            .name(data.getString(id + ".research.name"))
+                            .cost(data.getInt(id + ".research.cost"))
                             .build())
                     .build());
         }

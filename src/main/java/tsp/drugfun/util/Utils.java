@@ -2,14 +2,18 @@ package tsp.drugfun.util;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import tsp.drugfun.Drugfun;
 import tsp.drugfun.implementation.data.DrugData;
 import tsp.drugfun.implementation.data.PotionData;
 import tsp.drugfun.implementation.data.RecipeData;
+import tsp.drugfun.implementation.data.ResearchData;
 import tsp.drugfun.implementation.data.TriggerData;
 
 import java.util.ArrayList;
@@ -60,6 +64,15 @@ public class Utils {
         }
 
         return result.toArray(new ItemStack[0]);
+    }
+
+    public static Research asResearch(ResearchData data) {
+        return new Research(
+                new NamespacedKey(Drugfun.getInstance(), data.getId()),
+                data.getLegacyId(),
+                data.getName(),
+                data.getCost()
+        );
     }
 
     public static List<PotionEffect> asEffects(TriggerData data) {

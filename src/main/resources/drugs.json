@@ -20,6 +20,12 @@
     "overdose":{
       "amount": 1,
       "effects": []
+    },
+    "research": {
+      "id": "cocaine_research",
+      "legacyId": 666,
+      "name": "Fast af boi",
+      "cost": 10
     }
   }
 ]

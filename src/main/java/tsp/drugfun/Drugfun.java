@@ -1,6 +1,7 @@
 package tsp.drugfun;
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import tsp.drugfun.configuration.Config;
@@ -8,6 +9,7 @@ import tsp.drugfun.configuration.DrugsConfig;
 import tsp.drugfun.implementation.item.Drug;
 import tsp.drugfun.implementation.item.Morphine;
 import tsp.drugfun.task.OverdoseTask;
+import tsp.drugfun.util.Utils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -32,7 +34,13 @@ public class Drugfun extends JavaPlugin implements SlimefunAddon {
 
     private void registerDefaults() {
         new Morphine().register(this);
-        this.drugsConfig.getDrugs().forEach(data -> new Drug(data).register(this));
+        this.drugsConfig.getDrugs().forEach(data -> {
+            Drug drug = new Drug(data);
+            drug.register(this);
+            Research research = Utils.asResearch(data.getResearchData());
+            research.addItems(drug);
+            research.register();
+        });
     }
 
     public Config getCfg() {

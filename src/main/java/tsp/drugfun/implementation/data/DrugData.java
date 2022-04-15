@@ -16,5 +16,6 @@ public class DrugData {
 
     private RecipeData recipeData;
     private TriggerData triggerData;
+    private ResearchData researchData;
 
 }
