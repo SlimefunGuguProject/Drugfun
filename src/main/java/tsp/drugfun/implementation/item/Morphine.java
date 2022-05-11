@@ -18,10 +18,10 @@ public class Morphine extends SlimefunItem {
     public Morphine() {
         super(DrugGroup.GROUP, new SlimefunItemStack(
                 "DRUG_MORPHINE",
-                Material.STICK,
-                "&bMorphine",
+                Material.COCOA_BEANS,
+                "&b医用吗啡",
                 " ",
-                "&7Clears all negative effects on you."
+                "&7清除所有负面效果"
         ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 SlimefunItems.SPLINT
         }); // TODO: Add recipe
