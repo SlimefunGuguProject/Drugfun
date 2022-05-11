@@ -5,7 +5,7 @@
     "material": "SUGAR",
     "lore": [来自东方的神药],
     "recipe": {
-      "name": "Cocaine", # 须为英文
+      "name": "Cocaine",
       "type": "ENHANCED_CRAFTING_TABLE",
       "output": 1,
       "ingredients": [
