@@ -1,22 +1,24 @@
 # ID
 cocaine:
-  name: "Cocaine"
-  material: "SUGAR"
-  lore:
-    - ""
+  name: "云南白药" # 物品名称
+  material: "SUGAR" # 物品显示图标
+  lore: # 物品描述
+    - "来自东方的神药"
   recipe:
-    type: "ENHANCED_CRAFTING_TABLE"
-    output: 1
-    # Format: MATERIAL:AMOUNT
-    # If the material starts with hashtag (#) the material will be treated as a slimefun item id
-    ingredients:
+    type: "ENHANCED_CRAFTING_TABLE" # 在何处制作该物品
+    output: 1 # 一次性可制作多少该物品
+    # 格式: 材料:数量
+    # 如果材料以标签(#)开头，材料将被视为slimefun物品id
+    ingredients: # 制作所需材料
+      - "SUGAR:1"
+      - "SUGAR:1"
       - "SUGAR:1"
   trigger:
-    amount: 2 # When the drug is used, this is the amount added to the counter. Leading to
-    effects:
-      - "SPEED:30:1"
-  research:
-    id: "cocaine_research" # Research ID
-    legacyId: 666
-    name: "Fast af boi"
-    cost: 10
+    amount: 2 # 使用药物时，这是添加到计数器中的量（服用药物数量）
+    effects: # 药水效果ID:持续时间:药效等级
+      - "SPEED:30:1" 
+  research: # 为该物品注册研究
+    id: "cocaine_research" # 研究 ID
+    legacyId: 666 # 旧ID
+    name: "来自东方的神药" # 玩家解锁该研究时所显示的文本
+    cost: 10 # 玩家解锁该研究所要耗费的经验
