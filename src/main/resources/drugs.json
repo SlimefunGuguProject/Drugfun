@@ -1,11 +1,11 @@
 [
   {
     "id": "cocaine",
-    "name": "Cocaine",
+    "name": "云南白药",
     "material": "SUGAR",
-    "lore": [],
+    "lore": [来自东方的神药],
     "recipe": {
-      "name": "Cocaine",
+      "name": "Cocaine", # 须为英文
       "type": "ENHANCED_CRAFTING_TABLE",
       "output": 1,
       "ingredients": [
@@ -24,7 +24,7 @@
     "research": {
       "id": "cocaine_research",
       "legacyId": 666,
-      "name": "Fast af boi",
+      "name": "来自东方的神药",
       "cost": 10
     }
   }
