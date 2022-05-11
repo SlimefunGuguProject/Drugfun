@@ -11,7 +11,7 @@ public final class DrugGroup extends ItemGroup {
     public static final DrugGroup GROUP = new DrugGroup();
 
     private DrugGroup() {
-        super(new NamespacedKey(Drugfun.getInstance(), "drugs"), new CustomItemStack(Material.WHEAT, "&2Drugs"));
+        super(new NamespacedKey(Drugfun.getInstance(), "drugs"), new CustomItemStack(Material.WHEAT, "&2医药科技"));
         register(Drugfun.getInstance());
     }
 
