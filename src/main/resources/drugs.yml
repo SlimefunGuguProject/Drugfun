@@ -1,5 +1,4 @@
-# ID
-cocaine:
+cocaine: # 粘液物品ID，你如果要添加新药品，你需要更改此ID
   name: "云南白药" # 物品名称
   material: "SUGAR" # 物品显示图标
   lore: # 物品描述
