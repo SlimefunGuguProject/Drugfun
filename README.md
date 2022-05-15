@@ -79,4 +79,4 @@ ocaine:
 | research.#.name | 玩家解锁该研究时所显示的文本 |
 | research.#.cost | 玩家解锁该研究时所耗费的经验等级 |
 
-注意: *.json文件同理,但是recipe.#.name必须为英文*
+注意: *.json文件同理，但是recipe.#.name必须为英文*
