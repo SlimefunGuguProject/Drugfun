@@ -1,4 +1,4 @@
-# ID
+# 粘液物品ID，你如果要添加新药品，你需要更改此ID
 cocaine:
   name: "Cocaine"
   material: "SUGAR"
@@ -7,16 +7,16 @@ cocaine:
   recipe:
     type: "ENHANCED_CRAFTING_TABLE"
     output: 1
-    # Format: MATERIAL:AMOUNT
-    # If the material starts with hashtag (#) the material will be treated as a slimefun item id
+    # 格式: 材料:数量
+    # 如果材料以标签(#)开头，材料将被视为slimefun物品id
     ingredients:
       - "SUGAR:1"
   trigger:
-    amount: 2 # When the drug is used, this is the amount added to the counter. Leading to
+    amount: 2 # 使用药物时，这是添加到计数器中的量（服用药物数量）
     effects:
       - "SPEED:30:1"
   research:
-    id: "cocaine_research" # Research ID
+    id: "cocaine_research" # 研究 ID
     legacyId: 666
     name: "Fast af boi"
     cost: 10
