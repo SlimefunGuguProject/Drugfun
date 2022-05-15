@@ -8,6 +8,7 @@ fileType: "YAML"
 
 multiFile: false
 
+# 以下为药剂设置（服用过多药剂所获得的效果和药物过期设置）
 overdose:
   expire: 120 # 药物过期时间
   effects:
