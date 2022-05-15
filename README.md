@@ -24,11 +24,10 @@ overdose:
       required: 10
 ```   
 
-
 | 内容 | 描述 |
 | --- | ----------- |
-| drugsFile | 文件储存形式，慎改 |
-| fileType | 储存文件后缀，慎改 |
+| drugsFile | 文件储存形式(.yml或.json)，慎改 |
+| fileType | 储存文件后缀种类(YAML或JSON)，慎改 |
 | multiFile | 如果启用，“drugsFile”将被视为一个目录，其中每种药物对应一个文件 |
 | overdose | 药剂设置（服用过多药剂所获得的效果和药物过期设置） |
 | overdose.#.expire | 药剂过期时间 |
@@ -80,4 +79,4 @@ ocaine:
 | research.#.name | 玩家解锁该研究时所显示的文本 |
 | research.#.cost | 玩家解锁该研究时所耗费的经验等级 |
 
-注意:请勿随意乱动.json文件
+注意:.json文件同理,但是recipe.#.name必须为英文
